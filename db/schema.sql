@@ -1,1 +1,1 @@
-create database dentappointment_db;n
+create database dentappointment_db;
