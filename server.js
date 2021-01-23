@@ -21,11 +21,12 @@ app.set("view engine", "handlebars");
 // =============================================================
 require("./routes/html-routes.js")(app);
 require("./controllers/user-controller.js")(app);
+require("./controllers/patients-controller.js")(app);
 
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });

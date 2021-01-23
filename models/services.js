@@ -12,12 +12,13 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.TEXT
         },
     });
-    Services.associate = function (models) {
+/*
+    Services.associate = function(models) {
     
-        Services.hasMany(models.Patients, {
-            foreignKey: {
-                allowNull: false
-            }
+        Services.hasMany(models.Patient, {
+          foreignKey: {
+            allowNull: false
+          }
         });
         Treatments.belongsTo(models.Services, {
             foreignKey: {
@@ -25,7 +26,9 @@ module.exports = function (sequelize, DataTypes) {
             }
         });
 
-    }
-        return Services;
+
+        }*/
+            return Services;
+
 
 };
