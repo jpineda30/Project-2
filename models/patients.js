@@ -2,10 +2,6 @@ module.exports = function(sequelize,DataTypes){
 
     var Patient = sequelize.define("Patient",{
 
-        pacient_id:{
-            primary_key: true,
-            type: DataTypes.UUID
-        },
         first_name:{
             type:DataTypes.STRING
         },
