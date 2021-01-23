@@ -1,30 +1,31 @@
-module.exports = function(sequelize,DataTypes){
+module.exports = function (sequelize, DataTypes) {
 
-    var Services = sequelize.define("Services",{
+    var Services = sequelize.define("Services", {
 
-        service_name:{
-            type:DataTypes.STRING
+        service_name: {
+            type: DataTypes.STRING
         },
-        service_cost:{
-            type:DataTypes.INTEGER
+        service_cost: {
+            type: DataTypes.INTEGER
         },
-        service_observations:{
-            type:DataTypes.TEXT
-        },   
+        service_observations: {
+            type: DataTypes.TEXT
+        },
     });
-    Services.associate = function(models) {
+    Services.associate = function (models) {
     
         Services.hasMany(models.Patients, {
-          foreignKey: {
-            allowNull: false
-          }
+            foreignKey: {
+                allowNull: false
+            }
         });
         Treatments.belongsTo(models.Services, {
             foreignKey: {
-              allowNull: false
+                allowNull: false
             }
         });
 
-    return Services;
+    }
+        return Services;
 
 };
