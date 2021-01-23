@@ -35,6 +35,13 @@ module.exports = function(sequelize,DataTypes){
         }  
     });
 
+    Patient.associate = function(models) {
+        
+        Patient.hasMany(models.Appointment, models.Treatment, models.Sevices, {
+          
+        });
+      };
+
     return Patient;
 
 };
