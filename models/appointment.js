@@ -2,17 +2,17 @@ module.exports = function(sequelize,DataTypes){
 
     var Appointment = sequelize.define("Appointment",{
 
-        pacient:{
+        pacient_id:{
             type:DataTypes.STRING
         },
-        treatement:{
+        treatement_id:{
             type:DataTypes.STRING
         },
         date:{
-            type:DataTypes.DATEONLY
+            type:DataTypes.DATE(6)
         },
-        slot:{
-            type:DataTypes.INTEGER
+        hour_range:{
+            type:DataTypes.RANGE.sequelize.DATE
         },
 
     });
