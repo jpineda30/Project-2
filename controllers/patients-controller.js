@@ -44,6 +44,21 @@ module.exports = function(app){
         
     });
 
+    app.get("/viewPatient/:id",(req,res)=>{
+
+       let id = req.params.id;
+       
+         
+         db.Patient.findOne({
+             where:{id},
+            
+ 
+         }).then((response)=>{
+
+           res.send(response);
+         })
+     });
+
 
     
 };

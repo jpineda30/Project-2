@@ -7,9 +7,26 @@ $("#create-btn").on("click",function(){
  
  });
  
- $("#view-icon").on("click",function(){
+ $(".view-icon").on("click",function(){
     
-    $("#viewModal").css("display","block");
+   let id = $(this).attr("data-id"); 
+   
+   $.ajax("/viewPatient/"+id,{
+
+      type:"GET"
+
+   }).then((response)=>{
+
+      console.log(response.first_name);
+
+      $("#view_patient_name").text(response.first_name);
+
+      $("#viewModal").css("display","block");
+   });
+
+
+
+   
 
 });
 
