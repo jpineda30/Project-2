@@ -2,14 +2,14 @@ module.exports = function(sequelize,DataTypes){
 
     var Services = sequelize.define("Services",{
 
-        services_id:{
+        service_id:{
             primary_key: true,
             type:DataTypes.UUID
         },
-        services_name:{
+        service_name:{
             type:DataTypes.STRING
         },
-        services_cost:{
+        service_cost:{
             type:DataTypes.INTEGER
         },
         service_observations:{
