@@ -37,8 +37,15 @@ module.exports = function(sequelize,DataTypes){
 
     Patient.associate = function(models) {
         
-        Patient.hasMany(models.Appointment, models.Treatment, models.Sevices, {
-          
+        Patient.hasMany(models.Appointment, {
+            foreignKey: {
+                allowNull: false
+              }
+        });
+        Patient.hasMany(models.Treatment, {
+            foreignKey: {
+                allowNull: false
+              }
         });
       };
 

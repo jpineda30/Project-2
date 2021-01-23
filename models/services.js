@@ -2,10 +2,6 @@ module.exports = function(sequelize,DataTypes){
 
     var Services = sequelize.define("Services",{
 
-        service_id:{
-            primary_key: true,
-            type:DataTypes.UUID
-        },
         service_name:{
             type:DataTypes.STRING
         },
@@ -16,6 +12,18 @@ module.exports = function(sequelize,DataTypes){
             type:DataTypes.TEXT
         },   
     });
+    Services.associate = function(models) {
+    
+        Services.hasMany(models.Patients, {
+          foreignKey: {
+            allowNull: false
+          }
+        });
+        Treatments.belongsTo(models.Services, {
+            foreignKey: {
+              allowNull: false
+            }
+        });
 
     return Services;
 

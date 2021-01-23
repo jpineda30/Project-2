@@ -2,18 +2,14 @@ module.exports = function(sequelize,DataTypes){
 
     var Treatments = sequelize.define("Treatments",{
 
-        treatment_id:{
-            primary_key: true,
-            type:DataTypes.UUID
-        },
-        services_name:{
-            type:DataTypes.STRING
+        services_id:{
+            type:DataTypes.INTEGER
         },
         pacient_id:{
-            type:DataTypes.STRING
+            type:DataTypes.INTEGER
         },
         appointment_id:{
-            type:DataTypes.STRING
+            type:DataTypes.INTEGER
         }
     });
 
@@ -24,6 +20,12 @@ module.exports = function(sequelize,DataTypes){
         allowNull: false
       }
     });
+    Treatments.belongsTo(models.Services, {
+        foreignKey: {
+          allowNull: false
+        }
+    });
+
 };
 
     return Treatments;

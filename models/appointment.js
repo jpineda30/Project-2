@@ -5,14 +5,14 @@ module.exports = function(sequelize,DataTypes){
         pacient_id:{
             type:DataTypes.STRING
         },
-        treatement_id:{
+        treatment_id:{
             type:DataTypes.STRING
         },
-        date:{
+        date_start:{
             type:DataTypes.DATE(6)
         },
-        hour_range:{
-            type:DataTypes.RANGE.sequelize.DATE
+        date_end:{
+            type:DataTypes.DATE(6)
         },
 
     });
@@ -20,25 +20,23 @@ module.exports = function(sequelize,DataTypes){
     Appointment.associate = function(models) {
         // We're saying that a Appointment should belong to an a Patient, **** Service and Treatment??
         // A Apppointment can't be created without an Patient due to the foreign key constraint
-        Appointment.belongsTo(models.Patient, models.Services, models.Treatments, {
+        Appointment.belongsTo(models.Patient, {
             Patient: {
                 as: "Patient",
                 through: "last_name",
                 foreignKey: "patient_id",
             },
-            Services:{
-                as: "Service",
-                through: "services_name",
-                foreignKey: "services_id"
-            },
-            Treatments:{
-                as: "Treatment",
-                through: "services_name",
-                foreignKey: "services_id"
-            }
         
         });
-    };
 
+        Appointment.belongsTo(models.Treatments, {
+     
+        Treatments:{
+        as: "Treatment",
+        through: "services_name",
+        foreignKey: "services_id"
+    }   
+        });
+    };
     return Appointment;
 };
