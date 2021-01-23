@@ -7,9 +7,26 @@ $("#create-btn").on("click",function(){
  
  });
  
- $("#view-icon").on("click",function(){
+ $(".view-icon").on("click",function(){
     
-    $("#viewModal").css("display","block");
+   let id = $(this).attr("data-id"); 
+   
+   $.ajax("/viewPatient/"+id,{
+
+      type:"GET"
+
+   }).then((response)=>{
+
+      console.log(response.first_name);
+
+      $("#view_patient_name").text(response.first_name);
+
+      $("#viewModal").css("display","block");
+   });
+
+
+
+   
 
 });
 
@@ -19,9 +36,38 @@ $("#edit-icon").on("click",function(){
 
 });
  
- $(".close, #cancelCreate, #savePatient").on("click",function(){
+ $(".close, #cancelCreate").on("click",function(){
     $("#myModal").css("display","none");
  });
+
+ //save patient, send object
+ $("#savePatient").on("click",function(){
+
+   let patient = {
+
+      first_name: $("#patient_name").val(),
+      last_name: $("#patient_last_name").val(),
+      email:$("#patient_email").val(),
+      sex:$("#patient_sex").val(),
+      age:$("#patient_age").val(),
+      previous_diseases:$("#patient_diseases").val(),
+      current_medication:$("#patient_medication").val(),
+      allergies:$("#patient_allergies").val(),
+      patient_observations:$("#patient_observations").val()
+   }
+
+   $.ajax("/addPatient",{
+      type:"POST",
+      data:patient,
+   }).then((response)=>{
+
+      alert("success!");
+   });
+
+   console.log(patient);
+
+   $("#myModal").css("display","none");
+});
 
  $(".closeEdit, #cancelEdit, #savePatientEdit").on("click",function(){
     $("#editModal").css("display","none");

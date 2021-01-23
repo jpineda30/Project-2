@@ -38,12 +38,14 @@ module.exports = function(sequelize,DataTypes){
                 allowNull: false
               }
         });
-        Patient.hasMany(models.Treatment, {
+        Patient.hasMany(models.Treatments, {
             foreignKey: {
                 allowNull: false
               }
         });
       };
+
+      
 
     return Patient;
 
