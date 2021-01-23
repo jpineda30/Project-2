@@ -19,9 +19,6 @@ module.exports = function(app){
             res.render("treatments","");
         });
 
-        app.get("/patients",(req,res)=>{
-          
-            res.render("patients","");
-        });
+        
 
 };
