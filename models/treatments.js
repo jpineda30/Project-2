@@ -6,7 +6,7 @@ module.exports = function(sequelize,DataTypes){
             primary_key: true,
             type:DataTypes.UUID
         },
-        treatment_name:{
+        services_name:{
             type:DataTypes.STRING
         },
         pacient_id:{
@@ -16,6 +16,15 @@ module.exports = function(sequelize,DataTypes){
             type:DataTypes.STRING
         }
     });
+
+    Treatments.associate = function(models) {
+    
+    Treatments.belongsTo(models.Patients, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+};
 
     return Treatments;
 

@@ -20,22 +20,22 @@ module.exports = function(sequelize,DataTypes){
     Appointment.associate = function(models) {
         // We're saying that a Appointment should belong to an a Patient, **** Service and Treatment??
         // A Apppointment can't be created without an Patient due to the foreign key constraint
-        Appointment.belongsTo(models.Patien, models.Services, models.Treatments, {
-            Patiens: {
+        Appointment.belongsTo(models.Patient, models.Services, models.Treatments, {
+            Patient: {
                 as: "Patient",
                 through: "last_name",
                 foreignKey: "patient_id",
             },
             Services:{
-                as: "Services",
+                as: "Service",
+                through: "services_name",
+                foreignKey: "services_id"
+            },
+            Treatments:{
+                as: "Treatment",
                 through: "services_name",
                 foreignKey: "services_id"
             }
-
-         
-        
-
-
         
         });
     };
