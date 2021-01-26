@@ -2,19 +2,11 @@ const db = require("../models");
 
 module.exports = function(app){
 
-    app.post("/addPatient",(req,res)=>{
+    app.post("/addAppointment",(req,res)=>{
         console.log(req.body);
-        db.Patient.create({
+        db.Appointment.create({
 
-            first_name:req.body.first_name,
-            last_name:req.body.last_name,
-            email:req.body.email,
-            sex: true,
-            age:req.body.age,
-            previous_diseases:req.body.previous_diseases,
-            current_medication:req.body.current_medication,
-            patient_observations:req.body.patient_observations,
-            allergies:req.body.allergies
+
 
 
         }).then((response)=>{
@@ -22,13 +14,13 @@ module.exports = function(app){
         });
     });
 
-    app.get("/patients",(req,res)=>{
+    app.get("/appointments",(req,res)=>{
 
        // res.render("patients","")
         
         db.Patient.findAll({
             //where:{sex:true},
-            attributes:["patient_id","first_name","last_name","email"]
+            attributes:["l"]
 
         }).then((patients)=>{
               

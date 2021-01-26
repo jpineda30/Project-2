@@ -2,11 +2,13 @@ module.exports = function(sequelize,DataTypes){
 
     var Appointment = sequelize.define("Appointment",{
 
-        pacient_id:{
-            type:DataTypes.STRING
-        },
-        treatment_id:{
-            type:DataTypes.STRING
+        appointment_id:{
+            type:DataTypes.INTEGER,
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true,
+            onDelete: 'cascade',
+            onUpdate: 'cascade',
         },
         date_start:{
             type:DataTypes.DATE(6)
@@ -15,9 +17,21 @@ module.exports = function(sequelize,DataTypes){
             type:DataTypes.DATE(6)
         },
 
+
     });
 
     Appointment.associate = function(models) {
+    
+        Appointment.belongsTo(models.Patient, {
+          foreignKey: 'patient_id', as : 'Patient' 
+        });
+         Appointment.hasOne(models.Treatments,{
+        foreignKey:"treatment_id", as:"Treatments"
+         });
+       
+
+
+/*     Appointment.associate = function(models) {
         // We're saying that a Appointment should belong to an a Patient, **** Service and Treatment??
         // A Apppointment can't be created without an Patient due to the foreign key constraint
         Appointment.belongsTo(models.Patient, {
@@ -29,14 +43,14 @@ module.exports = function(sequelize,DataTypes){
         
         });
 
-        Appointment.belongsTo(models.Treatments, {
+        Appointment.hasOne(models.Treatments, {
      
         Treatments:{
         as: "Treatment",
         through: "services_name",
         foreignKey: "services_id"
     }   
-        });
+        }); */
     };
     return Appointment;
 };

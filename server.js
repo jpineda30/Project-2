@@ -1,6 +1,6 @@
 var express = require("express");
 var app = express();
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 21294;
 
 var db = require("./models");
 
@@ -22,6 +22,8 @@ app.set("view engine", "handlebars");
 require("./routes/html-routes.js")(app);
 require("./controllers/user-controller.js")(app);
 require("./controllers/patients-controller.js")(app);
+require("./controllers/treatments_services-controller")(app);
+require("./controllers/services-controller")(app);
 
 
 // Syncing our sequelize models and then starting our Express app

@@ -1,7 +1,16 @@
+const treatments_services = require("./treatments_services");
+
 module.exports = function(sequelize,DataTypes){
 
     var Services = sequelize.define("Services",{
+        
 
+        service_id: {
+            type:DataTypes.INTEGER,
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true
+        },
         service_name:{
             type:DataTypes.STRING
         },
@@ -12,22 +21,22 @@ module.exports = function(sequelize,DataTypes){
             type:DataTypes.TEXT
         },   
     });
-/*
+
     Services.associate = function(models) {
     
-        Services.hasMany(models.Patient, {
-          foreignKey: {
-            allowNull: false
-          }
-        });
-        Treatments.belongsTo(models.Services, {
-            foreignKey: {
-              allowNull: false
-            }
-        });
+        Services.belongsToMany(models.Treatments, {
+           
+                foreignKey: "service_id",
+                through: "Treatments_Services"
+                
+              }
+               
+
+            
+        );
 
 
-        }*/
+        }
             return Services;
 
 
