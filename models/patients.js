@@ -1,7 +1,14 @@
 module.exports = function(sequelize,DataTypes){
 
     var Patient = sequelize.define("Patient",{
-
+        patient_id: {
+            type:DataTypes.INTEGER,
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true,
+            onDelete: 'cascade',
+            onUpdate: 'cascade',
+        },
         first_name:{
             type:DataTypes.STRING
         },
@@ -34,14 +41,9 @@ module.exports = function(sequelize,DataTypes){
     Patient.associate = function(models) {
         
         Patient.hasMany(models.Appointment, {
-            foreignKey: {
-                allowNull: false
-              }
-        });
-        Patient.hasMany(models.Treatments, {
-            foreignKey: {
-                allowNull: false
-              }
+            foreignKey: "appointment_id",
+           // through: "Appointment"
+              
         });
       };
 
