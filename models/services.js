@@ -1,11 +1,10 @@
-const treatments_services = require("./treatments_services");
+const treatments_services = require("./treatments_services"); 
 
 module.exports = function(sequelize,DataTypes){
 
     var Services = sequelize.define("Services",{
-        
-
-/*         service_id: {
+/* 
+        service_id: {
             type:DataTypes.INTEGER,
             allowNull: false,
             autoIncrement: true,
@@ -15,13 +14,15 @@ module.exports = function(sequelize,DataTypes){
         }, */
         service_name:{
             type:DataTypes.STRING,
-            defaultValue: false, 
-            /* allowNull: false, */
+            allowNull: false,
+            /* defaultValue: false,  */
+           
         },
         service_cost:{
             type:DataTypes.INTEGER,
-            defaultValue: false, 
-            /* allowNull: false, */
+            /* defaultValue: false,  */
+            allowNull: false,
+            
         },
         service_observations:{
             type:DataTypes.TEXT
@@ -33,7 +34,7 @@ module.exports = function(sequelize,DataTypes){
         Services.belongsToMany(models.Treatments, {
            
                 foreignKey: "service_id",
-                through: "Treatments_Services"
+               through: "Treatments_Services"
                 
               }
                

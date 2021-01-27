@@ -2,30 +2,6 @@ const db = require("../models");
 
 module.exports = function(app){
 
-    app.get("/services",(req,res) => {
-    console.log("estamos aqui");
-    db.Services.findAll({
-
-    }).then((services)=>{
-          
-            
-            let Services = services.map((obj)=>{
-                let service = obj.dataValues;
-                return service
-            });
-
-           
-            res.render("services",{Services})
-    });
-    
-
-
-
-
-
-
-    });
-
     app.post("/addService",(req,res)=>{
         console.log(req.body);
         db.Services.create({
@@ -40,27 +16,29 @@ module.exports = function(app){
         });
     });
 
-    /* app.get("/services",(req,res)=>{
-        console.log("estamos aqui");
-        db.Services.findAll({
+    app.get("/services",(req,res) => {
 
-            attributes:["sevice_id","service_name","service_cost","service_observations"],
-    
-        }).then((services)=>{
-              
-                
-                let Services = services.map((obj)=>{
-                    let service = obj.dataValues;
-                    return service
-                });
+    console.log("estamos aqui");
+    db.Services.findAll({
 
-               
-                res.render("services",{Services})
-        });
-        
+
+    }).then((services)=>{
+          
+            
+            let Services = services.map((obj)=>{
+                let service = obj.dataValues;
+                return service
+            });
+
+           
+            res.render("services",{Services})
     });
- */
-    app.get("/viewServices/:id",(req,res)=>{
+    
+    });
+
+
+
+    app.get("/viewService/:id",(req,res)=>{
 
        let id = req.params.id;
        
@@ -74,6 +52,42 @@ module.exports = function(app){
            res.send(response);
          })
      });
+
+     app.put("/updateService/:id",(req,res)=>{
+        console.log("tratando de hacer UPDATE")
+         db.Services.update({
+
+             service_name: req.body.name,
+             service_cost:req.body.cost,
+             service_observations:req.body.observations
+
+         },{where:{id:req.params.id}}).then((response) => {
+             res.send(response);
+            }) .catch(function(err) {
+                // Whenever a validation or flag fails, an error is thrown
+                // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+                  res.send(err);
+                });
+     });
+
+
+
+
+
+     app.delete("/deleteService/:id",(req,res)=>{
+
+        db.Services.destroy({where:{id:req.params.id}}).then(()=>{
+                
+                res.status(200).end();
+                
+        }).catch((err)=>{
+            console.log(err);
+            res.status(500).send("we failed to delete for some reason")
+        });
+
+    });
+
+
 
 
     

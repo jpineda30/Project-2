@@ -23,7 +23,7 @@ require("./routes/html-routes.js")(app);
 require("./controllers/user-controller.js")(app);
 require("./controllers/patients-controller.js")(app);
 require("./controllers/treatments_services-controller")(app);
-require("./controllers/services-controller")(app);
+require("./controllers/services-controller.js")(app);
 
 
 // Syncing our sequelize models and then starting our Express app

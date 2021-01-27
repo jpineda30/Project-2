@@ -42,7 +42,7 @@ module.exports = function(app){
 
     app.get("/viewTreatment/:id",(req,res)=>{
         
-       let id = req.params.id;
+       let id = req.params.treatment_id;
        
          
          db.Treatments_Services.findOne({
