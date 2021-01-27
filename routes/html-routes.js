@@ -18,14 +18,6 @@ module.exports = function(app){
            
             res.render("treatments","");
         });
-
-        app.get("/services",(req,res)=>{
-           
-            res.render("services","");
-            
-        });
-
-
-        
+     
 
 };

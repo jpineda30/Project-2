@@ -5,17 +5,23 @@ module.exports = function(sequelize,DataTypes){
     var Services = sequelize.define("Services",{
         
 
-        service_id: {
+/*         service_id: {
             type:DataTypes.INTEGER,
             allowNull: false,
             autoIncrement: true,
-            primaryKey: true
-        },
+            primaryKey: true,
+            onDelete: 'cascade',
+            onUpdate: 'cascade',
+        }, */
         service_name:{
-            type:DataTypes.STRING
+            type:DataTypes.STRING,
+            defaultValue: false, 
+            /* allowNull: false, */
         },
         service_cost:{
-            type:DataTypes.INTEGER
+            type:DataTypes.INTEGER,
+            defaultValue: false, 
+            /* allowNull: false, */
         },
         service_observations:{
             type:DataTypes.TEXT

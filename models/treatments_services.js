@@ -4,7 +4,9 @@ module.exports = function(sequelize,DataTypes){
       treatment_services_id: {
         type:DataTypes.UUID,
         allowNull: false,
-        primaryKey: true
+        primaryKey: true,
+        onDelete: 'cascade',
+        onUpdate: 'cascade',
     },
       service_cost:{
       type:DataTypes.INTEGER
@@ -37,10 +39,10 @@ module.exports = function(sequelize,DataTypes){
     Treatments_Services.associate = function(models) {
     
         Treatments_Services.belongsTo(models.Treatments, {
-          foreignKey: 'treatment_id', as : 'Treatment' 
+          foreignKey: 'id', as : 'Treatment' 
         });
         Treatments_Services.belongsTo(models.Services, {
-          foreignKey: 'service_id',  as : 'Service' 
+          foreignKey: 'id',  as : 'Service' 
         });
     
     };
