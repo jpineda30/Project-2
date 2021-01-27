@@ -6,6 +6,13 @@ $(function(){
    
    });
    
+   $("#menu-calendar").on("click", ()=>{
+
+      window.location.replace("/calendar");
+   
+   });
+   
+
    $("#menu-profile").on("click", ()=>{
    
       window.location.replace("/profile");
