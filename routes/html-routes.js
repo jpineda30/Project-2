@@ -1,7 +1,7 @@
 module.exports = function(app){
 
         app.get("/",(req,res)=>{
-            res.render("","");
+            res.render("login","");
         });
 
         app.get("/appointments",(req,res)=>{
@@ -18,7 +18,6 @@ module.exports = function(app){
            
             res.render("treatments","");
         });
-
-        
+     
 
 };

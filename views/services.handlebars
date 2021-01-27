@@ -1,8 +1,8 @@
         <!--FORM-->
-        <script src="js/treatment-handler.js"></script>
+        <script src="js/services-handler.js"></script>
         <div class=" column level p-3 mr-6">
 
-          <h1 class="is-size-1">Treatments</h1>
+          <h1 class="is-size-1">Services</h1>
           <div id="creator" class="card card-header is-fullwidth">
             <a id="create-btn" class="button is-info m-1">Create</a>
             <div class="create-form">
@@ -16,18 +16,18 @@
                   <tr>
 
                     <th>ID</th>
-                    <th>Patient</th>
-                    <th>Services</th>
-                    <th>Price</th>
+                    <th>Name</th>
+                    <th>Cost</th>
+                    <th>Observations</th>
 
                   </tr>
 
                   <tbody>
                     
                       
-                      {{#each Treatments}}
+                      {{#each Services}}
                         
-                        {{>treatment-block}}
+                        {{>services-block}}
 
                        {{/each}}
                        
@@ -50,40 +50,33 @@
             
             <div class=" column level p-3 mr-6">
 
-              <h1 class="is-size-1">Treatment for Appointment</h1>
+              <h1 class="is-size-1">Type of Services</h1>
     
               <div class="field">
-                <label class="label">Treatment Type</label>
+                <label class="label">Name</label>
                 <div class="control">
                   <input id="service_name" class="input" type="text" placeholder="">
                 </div>
               </div>
-
-{{!--               <div class="field">
-                <label class="label">Price</label>
-                <div class="control">
-                  <input id="service_cost" class="input" type="text" placeholder="">
-                </div>
-              </div> --}}
     
               <div class="field">
-                <label class="label">Patient Name</label>
+                <label class="label">Cost</label>
                 <div class="control">
-                  <input id="first_name" class="input" type="text" placeholder="">
+                  <input id="service_cost" class="input" type="number" placeholder="">
                 </div>
               </div>
-                           
+
               <div class="field">
-                <label class="label">Patient Last Name</label>
+                <label class="label">Observations</label>
                 <div class="control">
-                  <input id="last_name" class="input" type="text" placeholder="">
+                  <input id="service_observations" class="input" type="number" placeholder="">
                 </div>
               </div>
- 
+              
 
               <div class="is-mobil level-right is-narrow">
                 <a id="cancelCreate" class="button is-info m-1">Cancel</a>
-                <a id="savetreatment" class="button is-info m-1">Save</a>
+                <a id="saveService" class="button is-info m-1">Save</a>
               </div>
     
             </div>
@@ -101,16 +94,30 @@
               <div class=" column level p-3 mr-6">
   
                 
-              <h1 class="is-size-1">Treatment Edition</h1>
+              <h1 class="is-size-1">service Edition</h1>
     
               <div class="field">
                 <label class="label">Name</label>
                 <div class="control">
-                  <input id="edit_treatment_name" class="input" type="text" placeholder="">
+                  <input id="edit_service_name" class="input" type="text" placeholder="">
                 </div>
               </div>
     
-                 
+              <div class="field">
+                <label class="label">Cost</label>
+                <div class="control">
+                  <input id="edit_service_cost" class="input" type="number" placeholder="50">
+                </div>
+              </div>
+              
+              <div class="field">
+                <label class="label">Observations</label>
+                <div class="control">
+                  <input id="edit_service_observations" class="input" type="text" placeholder="description">
+                </div>
+              </div>
+
+    
                  
               <div class="is-mobil level-right is-narrow">
                 <a id="cancelEdit" class="button is-info m-1">Cancel</a>
@@ -131,9 +138,21 @@
             
             <div class=" column level p-3 mr-6">
 
-              <h1 id="view_treatment_name" class="is-size-1">Treatment Name</h1>
+              <h1 id="view_service_name" class="is-size-1">service Name</h1>
   
-             
+              <div class="field">
+                <label class="label">Cost</label>
+                <div class="control">
+                  <p id="view_service_cost" class="card"></p>
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label">Observations</label>
+                <div class="control">
+                  <p class="card p-1" id="view_service_observations"></p>
+                </div>
+              </div>
 
               <a id="exitView" class="button is-info m-1">Exit</a>
     
@@ -150,7 +169,7 @@
             <span class="closeDeletion">&times;</span>
 
             <div class="">
-              <h1>Are you sure you want to delete?</h1>
+              <h1>Are you sure you want to delete</h1>
               <div class="level">
                 <a id="cancelDel" class="button is-info m-1">Cancel</a>
                 <a id="deleteBtn" class="button is-info m-1">Delete</a>

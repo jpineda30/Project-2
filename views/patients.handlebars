@@ -1,5 +1,6 @@
         <!--FORM-->
-        <div class=" column level p-3 mr-6">
+        <script src="js/patientHandler.js"></script>
+        <div class=" column level p-3 mr-6 easein">
 
           <h1 class="is-size-1">Patients</h1>
           <div id="creator" class="card card-header is-fullwidth">
@@ -9,7 +10,7 @@
             </div>
           </div>
 
-          <div id="table">
+          <div id="table easein">
               <table class="table is-fullwidth">
                 <thead>
                   <tr>
@@ -135,37 +136,80 @@
               
               <div class=" column level p-3 mr-6">
   
-                <h1 class="is-size-1">Patient Edit</h1>
-      
-                <div class="field">
-                  <label class="label">Name</label>
-                  <div class="control">
-                    <input id="user_name" class="input" type="text" placeholder="e.g Marcela">
-                  </div>
-                </div>
-      
-                <div class="field">
-                  <label class="label">Last Name</label>
-                  <div class="control">
-                    <input id="user_last_name" class="input" type="text" placeholder="e.g Dupeyron">
-                  </div>
-                </div>
                 
-                <div class="field">
-                  <label class="label">Email</label>
-                  <div class="control">
-                    <input id="user_email" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
-                  </div>
+              <h1 class="is-size-1">Patient Edition</h1>
+    
+              <div class="field">
+                <label class="label">Name</label>
+                <div class="control">
+                  <input id="edit_patient_name" class="input" type="text" placeholder="e.g Marcela">
                 </div>
-      
-                   
-                <div class="is-mobil level-right is-narrow">
-                  <a id="cancelEdit" class="button is-info m-1">Cancel</a>
-                  <a id="savePatientEdit" class="button is-info m-1">Save Changes</a>
-                </div>
-      
               </div>
+    
+              <div class="field">
+                <label class="label">Last Name</label>
+                <div class="control">
+                  <input id="edit_patient_last_name" class="input" type="text" placeholder="e.g Dupeyron">
+                </div>
+              </div>
+              
+              <div class="field">
+                <label class="label">Email</label>
+                <div class="control">
+                  <input id="edit_patient_email" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label">Sex</label>
+                <div class="control">
+                  <input id="edit_patient_sex" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label">Age</label>
+                <div class="control">
+                  <input id="edit_patient_age" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label">Previous diseases</label>
+                <div class="control">
+                  <input id="edit_patient_diseases" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label">Current medication</label>
+                <div class="control">
+                  <input id="edit_patient_medication" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label">Allergies</label>
+                <div class="control">
+                  <input id="edit_patient_allergies" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label">Observations</label>
+                <div class="control">
+                  <input id="edit_patient_observations" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                </div>
+              </div>
+    
+                 
+              <div class="is-mobil level-right is-narrow">
+                <a id="cancelEdit" class="button is-info m-1">Cancel</a>
+                <a id="saveEdit" class="button is-info m-1">Save</a>
+              </div>
+    
             </div>
+          </div>
           
           </div>
 
@@ -178,70 +222,58 @@
             
             <div class=" column level p-3 mr-6">
 
-              <h1 class="is-size-1">Patient Name</h1>
-    
-              <div class="field">
-                <label class="label">Name</label>
-                <div class="control">
-                  <p id="view_patient_name"></p>
-                </div>
-              </div>
-    
-              <div class="field">
-                <label class="label">Last Name</label>
-                <div class="control">
-                  <input id="patient_last_name" class="input" type="text" placeholder="e.g Dupeyron">
-                </div>
-              </div>
-              
-              <div class="field">
-                <label class="label">Email</label>
-                <div class="control">
-                  <input id="patient_email" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
-                </div>
-              </div>
-
+              <h1 id="view_patient_name" class="is-size-1">Patient Name</h1>
+  
               <div class="field">
                 <label class="label">Sex</label>
                 <div class="control">
-                  <input id="patient_sex" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                  <p id="view_patient_sex" class="card"></p>
                 </div>
               </div>
 
               <div class="field">
                 <label class="label">Age</label>
                 <div class="control">
-                  <input id="patient_age" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                  <p class="card p-1" id="view_patient_age"></p>
                 </div>
               </div>
 
               <div class="field">
                 <label class="label">Previous diseases</label>
                 <div class="control">
-                  <input id="patient_diseases" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                  <p class="card p-1" id="view_patient_diseases"></p>
                 </div>
               </div>
 
               <div class="field">
                 <label class="label">Current medication</label>
                 <div class="control">
-                  <input id="patient_medication" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                  <p class="card p-1" id="view_patient_medication"></p>
                 </div>
               </div>
 
               <div class="field">
-                <label class="label">Allergies</label>
+                <label class="label">Allergies</label></p>
                 <div class="control">
-                  <input id="patient_allergies" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                  <p class="card p-1" id="_view_patient_allergies">
                 </div>
               </div>
 
               <div class="field">
                 <label class="label">Observations</label>
                 <div class="control">
-                  <input id="patient_observations" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                  <p class="card p-1" id="view_patient_observations"></p>
                 </div>
               </div>
+
+               <div class="field">
+                <label class="label">Email: <p class="card p-1" id="view_patient_email"></p></label>
+                </div>
+                <div class="field">
+                <label class="label">Phone: <p class="card p-1" id="view_patient_phone"></p></label>
+              </div>
+
+              <a id="exitView" class="button is-info m-1">Exit</a>
     
             </div>
           </div>
