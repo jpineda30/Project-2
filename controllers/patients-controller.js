@@ -56,8 +56,44 @@ module.exports = function(app){
          }).then((response)=>{
 
            res.send(response);
-         })
+         })/* .catch(function(err) {
+            // Whenever a validation or flag fails, an error is thrown
+            // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+              res.json(err);
+            }); */
      });
+
+     app.put("/updatePatient/:id",(req,res)=>{
+        
+        db.Patient.update({
+           
+            first_name:req.body.first_name,
+            last_name:req.body.last_name,
+            email:req.body.email,
+            sex: true,
+            age:req.body.age,
+            previous_diseases:req.body.previous_diseases,
+            current_medication:req.body.current_medication,
+            patient_observations:req.body.patient_observations,
+            allergies:req.body.allergies
+            
+
+        },{where:{id:req.params.id}}).then((response)=>{
+                res.send(response);
+        });
+    });
+
+    app.delete("/deletePatient/:id",(req,res)=>{
+
+        db.Patient.destroy({where:{id:req.params.id}}).then(()=>{
+                
+                res.status(200).end();
+                
+        }).catch((err)=>{
+            console.log(err);
+        });
+
+    });
 
 
     

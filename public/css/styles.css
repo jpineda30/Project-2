@@ -92,6 +92,17 @@ div[class*=box] {
     height: 100vh;
 }
 
+#login{
+  background-color: rgba(133, 133, 233, 0.979);
+  
+  transition: .5s ease;
+}
+
+.easein{
+  
+  transition: .5s ease;
+}
+
 .bview{
   color: #5f5cf5;
 }
@@ -102,4 +113,12 @@ div[class*=box] {
 
 .bedit{
   color: orange ;
+}
+
+.iconsBar{
+  height: 41px;
+}
+
+i{
+  height: 17px;
 }

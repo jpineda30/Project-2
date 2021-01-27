@@ -1,33 +1,45 @@
-module.exports = function (sequelize, DataTypes) {
+const treatments_services = require("./treatments_services");
 
-    var Services = sequelize.define("Services", {
+module.exports = function(sequelize,DataTypes){
 
-        service_name: {
-            type: DataTypes.STRING
+    var Services = sequelize.define("Services",{
+        
+
+/*         service_id: {
+            type:DataTypes.INTEGER,
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true,
+            onDelete: 'cascade',
+            onUpdate: 'cascade',
+        }, */
+        service_name:{
+            type:DataTypes.STRING,
+            defaultValue: false, 
+            /* allowNull: false, */
         },
-        service_cost: {
-            type: DataTypes.INTEGER
-        },
-        service_observations: {
-            type: DataTypes.TEXT
+        service_cost:{
+            type:DataTypes.INTEGER,
+            defaultValue: false, 
+            /* allowNull: false, */
         },
     });
-/*
+
     Services.associate = function(models) {
     
-        Services.hasMany(models.Patient, {
-          foreignKey: {
-            allowNull: false
-          }
-        });
-        Treatments.belongsTo(models.Services, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
+        Services.belongsToMany(models.Treatments, {
+           
+                foreignKey: "service_id",
+                through: "Treatments_Services"
+                
+              }
+               
+
+            
+        );
 
 
-        }*/
+        }
             return Services;
 
 

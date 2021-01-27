@@ -1,30 +1,26 @@
+const services = require("./services");
 module.exports = function(sequelize,DataTypes){
 
     var Treatments = sequelize.define("Treatments",{
+/*         treatment_id: {
+            type:DataTypes.INTEGER,
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true,
+            onDelete: 'cascade',
+            onUpdate: 'cascade',
 
-        services_id:{
-            type:DataTypes.INTEGER
-        },
-        pacient_id:{
-            type:DataTypes.INTEGER
-        },
-        appointment_id:{
-            type:DataTypes.INTEGER
-        }
+        } */
+        
     });
 
     Treatments.associate = function(models) {
     
-    Treatments.belongsTo(models.Patient, {
-      foreignKey: {
-        allowNull: false
-      }
+    Treatments.belongsToMany(models.Services, {
+        foreignKey: "treatment_id",
+        through: "Treatments_Services"
     });
-    Treatments.belongsTo(models.Services, {
-        foreignKey: {
-          allowNull: false
-        }
-    });
+
 
 };
 
