@@ -63,10 +63,10 @@ module.exports = function(app){
             }); */
      });
 
-     app.put("/updatePatient",(req,res)=>{
-        console.log(req.body);
+     app.put("/updatePatient/:id",(req,res)=>{
+        
         db.Patient.update({
-            where: {
+           
             first_name:req.body.first_name,
             last_name:req.body.last_name,
             email:req.body.email,
@@ -76,12 +76,25 @@ module.exports = function(app){
             current_medication:req.body.current_medication,
             patient_observations:req.body.patient_observations,
             allergies:req.body.allergies
-            }
+            
 
-        }).then((response)=>{
+        },{where:{id:req.params.id}}).then((response)=>{
                 res.send(response);
         });
     });
+
+    app.delete("/deletePatient/:id",(req,res)=>{
+
+        db.Patient.destroy({where:{id:req.params.id}}).then(()=>{
+                
+                res.status(200).end();
+                
+        }).catch((err)=>{
+            console.log(err);
+        });
+
+    });
+
 
     
 };

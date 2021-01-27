@@ -50,7 +50,7 @@ $("#create-btn").on("click",function(){
 $("#edit-icon").on("click",function(){
 
    let id = $(this).attr("data-id"); 
-   
+   target = id;
    $.ajax("/viewPatient/"+id,{
 
       type:"GET"
@@ -131,12 +131,12 @@ $("#saveEdit").on("click",function(){
 
    }
 
-   $.ajax("/updatePatient",{
+   $.ajax("/updatePatient/" + target,{
       type:"PUT",
       data:patient,
    }).then((response)=>{
 
-      
+      target = "";
       window.location.replace("/patients");
 
    });
@@ -162,20 +162,22 @@ $("#saveEdit").on("click",function(){
 
 });
 
-$("#cancelDel, .closeDeletion").on("click",function(){
+$("#cancelDel, .closeDeletion, #deleteBtn").on("click",function(){
     $("#delete-prompt").css("display","none");
 });
 
 // #deleteBtn
 $("#deleteBtn").on("click",function(){
-    
+   
    $.ajax("/deletePatient/" + target,{
 
       type:"DELETE"
 
    }).then((response)=>{
 
-      target = "";
+      console.log("deleted");
+      window.location.replace("/patients");
+
    });
 
 });
