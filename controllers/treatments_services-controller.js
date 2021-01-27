@@ -24,7 +24,7 @@ module.exports = function(app){
         
         db.Treatments_Services.findAll({
            
-            attributes:["treatment_id","first_name","last_name","service_name","service_cost"]
+            attributes:["id","first_name","last_name","service_name","service_cost"]
 
         }).then((treatments_services)=>{
               

@@ -2,14 +2,37 @@ const db = require("../models");
 
 module.exports = function(app){
 
+    app.get("/services",(req,res) => {
+    console.log("estamos aqui");
+    db.Services.findAll({
+
+    }).then((services)=>{
+          
+            
+            let Services = services.map((obj)=>{
+                let service = obj.dataValues;
+                return service
+            });
+
+           
+            res.render("services",{Services})
+    });
+    
+
+
+
+
+
+
+    });
+
     app.post("/addService",(req,res)=>{
         console.log(req.body);
         db.Services.create({
 
-            service_name:req.body.service_name,
-            service_cost:req.body.service_cost,
-            email:req.body.email,
-            service_observations: req.body.service_observations,
+            service_name:req.body.name,
+            service_cost:req.body.cost,
+            service_observations: req.body.observations,
 
 
         }).then((response)=>{
@@ -17,22 +40,10 @@ module.exports = function(app){
         });
     });
 
-
-    app.get("/services"), function(req,res){
-        db.Services.findAll({}).then(function(dbServices){
-            console.log("en data Services");
-            console.log("req.body",req.body);
-            console.log("dbServices",dbServices);
-            res.json(dbServices);
-        });
-    };
-
-/*     app.get("/services",(req,res)=>{
-
-       // res.render("patients","")
+    /* app.get("/services",(req,res)=>{
         console.log("estamos aqui");
         db.Services.findAll({
-            //where:{sex:true},
+
             attributes:["sevice_id","service_name","service_cost","service_observations"],
     
         }).then((services)=>{
@@ -48,7 +59,7 @@ module.exports = function(app){
         });
         
     });
-
+ */
     app.get("/viewServices/:id",(req,res)=>{
 
        let id = req.params.id;
@@ -64,6 +75,6 @@ module.exports = function(app){
          })
      });
 
- */
+
     
 };
