@@ -51,14 +51,14 @@ module.exports = function(sequelize,DataTypes){
         }  
     });
 
-    Patient.associate = function(models) {
+   /* Patient.associate = function(models) {
         
         Patient.hasMany(models.Appointment, {
             foreignKey: "id",
            // through: "Appointment"
               
         });
-      };
+      };*/
 
       
 

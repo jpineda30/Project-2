@@ -19,10 +19,7 @@ module.exports = function(app){
             res.render("treatments","");
         });
 
-        app.get("/escape",(req,res)=>{
-           
-            res.render("appointments","");
-        });
+    
      
 
 };

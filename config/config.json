@@ -1,8 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "astro268",
-
+    "password": "Sonata00",
     "database": "dentappointment_db",
     "host": "localhost",
     "dialect": "mysql"
