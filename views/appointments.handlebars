@@ -32,12 +32,14 @@
                     
                     <th>Start time</th>
                     <th>End Time</th>
+                    <th>Patient</th>
+                    <th>Service</th>
                     <th>Actions</th>
                     
                   </tr>
 
-                  <tbody>
-                    {{log Appointments}}
+                  <tbody id="datesTable">
+                    
                     {{#each Appointments}}
                       {{>appointments-block}}
                     {{/each}}  
@@ -96,6 +98,8 @@
               </datalist>
             </div>
 
+            <h1 class="has-text-danger is-size-5" id="errorMsg"></h1>
+
           </div>
 
           <div class="is-mobil level-right is-narrow">
@@ -115,7 +119,7 @@
         
         <div class=" column level p-3 mr-6">
 
-          <h1 class="is-size-1">Appointment Edition</h1>
+          <h1 class="is-size-1">Appointment View</h1>
 
           <div class="field level level-left">
            
@@ -171,8 +175,17 @@
 
           <h1 class="is-size-1">Appointment Edition</h1>
 
-          <div class="field level level-left">
-           
+          <div class="field level">
+            
+             <div>
+                <label class="label mr-3">Date</label>
+
+                    <input class="input" type="date" id="editionDate"
+                    
+                    min="2021-01-01" max="2030-12-31">
+                    
+            </div>
+
             <div class="control">
               <label class="label">Start Time</label>
               <input class="input" id="startEdit" type="time" id="appt" name="appt"
@@ -209,7 +222,7 @@
             </div>
 
           </div>
-
+           <h1 class="has-text-danger is-size-5" id="errorMsgEdit"></h1>
           <div class="is-mobil level-right is-narrow">
             <a id="cancelEdit" class="button is-info m-1">Cancel</a>
             <a id="saveEdit" class="button is-info m-1">Save</a>
