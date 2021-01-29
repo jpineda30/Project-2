@@ -28,7 +28,7 @@ $("#create-btn").on("click",function(){
       if(response.sex)
          {$("#view_patient_sex").text("Male");}
       else
-         {$("#view_patient_sex").text("Female");};
+         {$("#view_patient_sex").text("Female");}
       
       $("#view_patient_age").text(response.age);
       $("#view_patient_allergies").text(response.allergies);

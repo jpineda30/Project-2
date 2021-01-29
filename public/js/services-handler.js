@@ -21,12 +21,12 @@ $("#create-btn").on("click",function(){
 
    }).then((response)=>{
 
-      
+      console.log(response.service_name);
 
-      $("#view_service_name").text(response.name);
+      $("#view_service_name").text(response.service_name);
 
-      $("#view_service_cost").text(response.cost);
-      $("#view_service_observations").text(response.observations);
+      $("#view_service_cost").text(response.service_cost);
+      $("#view_service_observations").text(response.service_observations);
       
       $("#viewModal").css("display","block");
    });
@@ -37,9 +37,10 @@ $("#create-btn").on("click",function(){
 
 });
 
-$("#edit-icon").on("click",function(){
+$(".edit-icon").on("click",function(){
 
    let id = $(this).attr("data-id"); 
+   target=id;
    
    $.ajax("/viewService/"+id,{
 
@@ -49,9 +50,9 @@ $("#edit-icon").on("click",function(){
 
       
 
-      $("#edit_service_name").val(response.name);
-      $("#edit_service_cost").val(response.cost);
-      $("#edit_service_observations").val(response.observations);
+      $("#edit_service_name").val(response.service_name);
+      $("#edit_service_cost").val(response.service_cost);
+      $("#edit_service_observations").val(response.service_observations);
 
 
 
@@ -89,23 +90,23 @@ $("#edit-icon").on("click",function(){
    $("#myModal").css("display","none");
 });
 
-$("#saveEdit").on("click",function(){
+$("#saveEdit").on("click",function(event){
 
    let Service = {
 
-      name: $("#service_name").val(),
-      cost: $("#service_cost").val(),
-      observations:$("#service_observations").val(),
+      name: $("#edit_service_name").val(),
+      cost: parseInt($("#edit_service_cost").val()),
+      observations:$("#edit_service_observations").val(),
      
-   }
-
-   $.ajax("/updateService",{
+   };
+   $.ajax("/updateService/" + target,{
       type:"PUT",
       data:Service,
    }).then((response)=>{
 
-      
+      target= "";
       window.location.replace("/services");
+
 
    });
 
@@ -130,7 +131,7 @@ $("#saveEdit").on("click",function(){
 
 });
 
-$("#cancelDel, .closeDeletion").on("click",function(){
+$("#cancelDel, .closeDeletion, #deleteBtn").on("click",function(){
     $("#delete-prompt").css("display","none");
 });
 
@@ -142,10 +143,12 @@ $("#deleteBtn").on("click",function(){
       type:"DELETE"
 
    }).then((response)=>{
-
-      target = "";
+      console.log("siii" + response)
+    console.log("service deleted");
+    window.location.replace("/services");
    });
 
 });
 
-})
+
+});
