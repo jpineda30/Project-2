@@ -54,7 +54,7 @@ module.exports = function(app){
      });
 
      app.put("/updateService/:id",(req,res)=>{
-        console.log("tratando de hacer UPDATE")
+        console.log(req.params.id)
          db.Services.update({
 
              service_name: req.body.name,

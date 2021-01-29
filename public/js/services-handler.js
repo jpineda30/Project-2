@@ -90,16 +90,15 @@ $(".edit-icon").on("click",function(){
    $("#myModal").css("display","none");
 });
 
-$("#saveEdit").on("click",function(){
+$("#saveEdit").on("click",function(event){
 
    let Service = {
 
-      name: $("#service_name").val(),
-      cost: $("#service_cost").val(),
-      observations:$("#service_observations").val(),
+      name: $("#edit_service_name").val(),
+      cost: parseInt($("#edit_service_cost").val()),
+      observations:$("#edit_service_observations").val(),
      
-   }
-
+   };
    $.ajax("/updateService/" + target,{
       type:"PUT",
       data:Service,
@@ -107,6 +106,7 @@ $("#saveEdit").on("click",function(){
 
       target= "";
       window.location.replace("/services");
+
 
    });
 
