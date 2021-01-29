@@ -24,9 +24,6 @@ module.exports = function(sequelize,DataTypes){
             allowNull: false,
             
         },
-        service_observations:{
-            type:DataTypes.TEXT
-        },   
     });
 
     Services.associate = function(models) {
