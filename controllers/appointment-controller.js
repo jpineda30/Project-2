@@ -1,55 +1,92 @@
 const db = require("../models");
 
+
 module.exports = function(app){
 
     app.post("/addAppointment",(req,res)=>{
-        console.log(req.body);
+       
+         //////////////
+
+         let today = new Date();
+         let dd = String(today.getDate()).padStart(2, '0');
+         let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+         let yyyy = today.getFullYear();
+ 
+         today = yyyy + '-' + mm + '-' + dd;
+ 
+         console.log(today);
+ 
+         //////////////////////////////
+
         db.Appointment.create({
-
-
-
+             date_start:req.body.start,
+             date_end:req.body.end,
+             date_day:today
 
         }).then((response)=>{
+
                 res.send(response);
         });
+              
     });
-
+    
     app.get("/appointments",(req,res)=>{
 
-       // res.render("patients","")
-        
-        db.Patient.findAll({
-            //where:{sex:true},
-            attributes:["l"]
+        //////////////
 
-        }).then((patients)=>{
-              
-                
-                let Patients = patients.map((obj)=>{
-                    let patient = obj.dataValues;
-                    return patient
-                });
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
 
-               
-                res.render("patients",{Patients})
+        today = yyyy + '-' + mm + '-' + dd;
+
+        console.log(today);
+
+        //////////////////////////////
+
+        db.Appointment.findAll({
+
+            where:{
+                date_day:{ like: today }
+            }
+
+        }).then((response)=>{
+
+            let Appointments = response.map((obj)=>{
+                let app = obj.dataValues;
+                return app
+            });
+
+            res.render("appointments",{Appointments})
+
         });
-        
     });
 
-    app.get("/viewPatient/:id",(req,res)=>{
+    app.get("/appointments/:date",(req,res)=>{
 
-       let id = req.params.id;
-       
-         
-         db.Patient.findOne({
-             where:{id},
-            
+        
+        
+        let date = req.params.date;
+        console.log("RECIVED -----" + date);
+
+        db.Appointment.findAll({
+            where:{date_day:date}
+        }).then((response)=>{
+
+            let Appointments = response.map((obj)=>{
+                let app = obj.dataValues;
+                return app
+            });
+           
+            res.json(Appointments);
+
+        });
+    });
+
  
-         }).then((response)=>{
 
-           res.send(response);
-         })
-     });
+ 
 
 
     
