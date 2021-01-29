@@ -4,11 +4,6 @@ module.exports = function(app){
             res.render("login","");
         });
 
-        app.get("/appointments",(req,res)=>{
-            
-            res.render("appointments","");
-        });
-
         app.get("/calendar",(req,res)=>{
             
             res.render("calendar","");
@@ -22,6 +17,11 @@ module.exports = function(app){
         app.get("/treatments",(req,res)=>{
            
             res.render("treatments","");
+        });
+
+        app.get("/escape",(req,res)=>{
+           
+            res.render("appointments","");
         });
      
 

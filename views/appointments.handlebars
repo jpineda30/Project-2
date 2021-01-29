@@ -1,41 +1,46 @@
+       <script src="js/appointments-handler.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
         <!--FORM-->
         <div class=" column level p-3 mr-6">
 
           <h1 class="is-size-1">Appointments</h1>
-          <div id="creator" class="card card-header is-fullwidth">
-            <a id="create-btn" class="button is-info m-1">Create</a>
-            <div class="create-form">
 
+          <div id="showDate" class="level card card-header p-3" >
+
+             <div id="creator" class="x is-fullwidth">
+                 <a id="create-btn" class="button is-info m-1">Create</a>
             </div>
+
+            <div class="level">
+              <label class="is-size-5 p-2" for="currentDate">Date:</label>
+
+                    <input class="is-size-5 input" type="date" id="currentDate"
+                    
+                    min="2021-01-01" max="2030-12-31">
+                    
+            </div>
+
+              
           </div>
+
+         
 
           <div id="table">
               <table class="table is-fullwidth">
                 <thead>
                   <tr>
                     
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Last Name</th>
-                    <th>E-mail</th>
+                    <th>Start time</th>
+                    <th>End Time</th>
                     <th>Actions</th>
                     
                   </tr>
 
                   <tbody>
-                    <tr>
-                      <th>1</th>
-                      <th>Marcela</th>
-                      <th>dupeyron</th>
-                      <th>E-mail</th>
-                      <th class="level">
-                        
-                        <i id="view-icon" class="fas fa-eye -mx-1 bview"></i>
-                        <i  id="edit-icon" class="far fa-edit mx-1 bedit"></i>
-                        <i  id="delete-icon" class="fas fa-trash -mx-1 bdelete"></i>
-                      </th>
-                     
-                    </tr>
+                    {{#each Appointments}}
+                      {{>appointments-block}}
+                    {{/each}}  
+
                 </thead>
                 
           </div>
@@ -45,133 +50,174 @@
         <!--Modals-->
 
         <!--Create Modal-->
-        <div id="myModal" class="modal card">
-
-          <!-- Modal content -->
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            
-            <div class=" column level p-3 mr-6">
-
-              <h1 class="is-size-1">Appointment Creation</h1>
-    
-              <div class="field">
-                <label class="label">Name</label>
-                <div class="control">
-                  <input id="user_name" class="input" type="text" placeholder="e.g Marcela">
-                </div>
-              </div>
-    
-              <div class="field">
-                <label class="label">Last Name</label>
-                <div class="control">
-                  <input id="user_last_name" class="input" type="text" placeholder="e.g Dupeyron">
-                </div>
-              </div>
-              
-              <div class="field">
-                <label class="label">Email</label>
-                <div class="control">
-                  <input id="user_email" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
-                </div>
-              </div>
-    
-                 
-              <div class="is-mobil level-right is-narrow">
-                <a id="cancelCreate" class="button is-info m-1">Cancel</a>
-                <a id="saveAppointment" class="button is-info m-1">Save</a>
-              </div>
-    
-            </div>
-          </div>
+        <div id="createModal" class="modal card">
+        <div class="modal-content">
+        <span class="closeCreate">&times;</span>
         
-        </div>
+        <div class=" column level p-3 mr-6">
 
-          <!--Edit Modal-->
-          <div id="editModal" class="modal card">
+          <h1 class="is-size-1">Appointment Creation</h1>
 
-            <!-- Modal content -->
-            <div class="modal-content">
-              <span class="closeEdit">&times;</span>
-              
-              <div class=" column level p-3 mr-6">
-  
-                <h1 class="is-size-1">Appointment Edit</h1>
-      
-                <div class="field">
-                  <label class="label">Name</label>
-                  <div class="control">
-                    <input id="user_name" class="input" type="text" placeholder="e.g Marcela">
-                  </div>
-                </div>
-      
-                <div class="field">
-                  <label class="label">Last Name</label>
-                  <div class="control">
-                    <input id="user_last_name" class="input" type="text" placeholder="e.g Dupeyron">
-                  </div>
-                </div>
-                
-                <div class="field">
-                  <label class="label">Email</label>
-                  <div class="control">
-                    <input id="user_email" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
-                  </div>
-                </div>
-      
-                   
-                <div class="is-mobil level-right is-narrow">
-                  <a id="cancelEdit" class="button is-info m-1">Cancel</a>
-                  <a id="saveAppointmentEdit" class="button is-info m-1">Save Changes</a>
-                </div>
-      
-              </div>
+          <div class="field level level-left">
+           
+            <div class="control">
+              <label class="label">Start Time</label>
+              <input class="input" id="start" type="time" id="appt" name="appt"
+                  min="09:00" max="18:00" required>
+               </input>
             </div>
+
+            <div class="control mr-3">
+              <label class="label">End Time</label>
+              <input class="input" id="end" type="time" id="appt" name="appt"
+                 min="09:00" max="18:00" required>
+               </input>
+            </div>
+
+          </div>
+
+          <div class="field">
           
-          </div>
-
-        <!--View Modal-->
-        <div id="viewModal" class="modal card">
-
-
-          <div class="modal-content">
-            <span class="closeView">&times;</span>
-            
-            <div class=" column level p-3 mr-6">
-
-              <h1 class="is-size-1">Appointment Name</h1>
-    
-              <div class="field">
-                <label class="label">Name</label>
-                <div class="control">
-                  <input id="user_name" class="input" type="text" placeholder="e.g Marcela">
-                </div>
-              </div>
-    
-              <div class="field">
-                <label class="label">Last Name</label>
-                <div class="control">
-                  <input id="user_last_name" class="input" type="text" placeholder="e.g Dupeyron">
-                </div>
-              </div>
-              
-              <div class="field">
-                <label class="label">Email</label>
-                <div class="control">
-                  <input id="user_email" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
-                </div>
-              </div>
-    
-                 
-              <div class="is-mobil level-right is-narrow">
-                <a id="exitView" class="button is-info m-1">exit</a>
+            <div class="control">
+              <label class="label">Patient</label>
+              <input id="patient" class="input patients" list="patientList" name="browser">
+              <datalist id="patientList">
                 
-              </div>
-    
+              </datalist>
             </div>
+
+            <div class="control">
+              <label class="label">Service</label>
+
+              <input id="service" class="input services" list="serviceList" name="browser">
+              <datalist id="serviceList">
+                
+              </datalist>
+            </div>
+
           </div>
-        
+
+          <div class="is-mobil level-right is-narrow">
+            <a id="cancelCreate" class="button is-info m-1">Cancel</a>
+            <a id="saveCreate" class="button is-info m-1">Save</a>
+          </div>
+
         </div>
+      </div>
+        </div>
+
+          <!--View Modal-->
+        
+        <div id="viewModal" class="modal card">
+        <div class="modal-content">
+        <span class="closeView">&times;</span>
+        
+        <div class=" column level p-3 mr-6">
+
+          <h1 class="is-size-1">Appointment Edition</h1>
+
+          <div class="field level level-left">
+           
+            <div class="control">
+              <label class="label">Start Time</label>
+              <input class="input" id="startView" type="time" id="appt" name="appt"
+                  min="09:00" max="18:00" required>
+               </input>
+            </div>
+
+            <div class="control mr-3">
+              <label class="label">End Time</label>
+              <input class="input" id="endView" type="time" id="appt" name="appt"
+                 min="09:00" max="18:00" required>
+               </input>
+            </div>
+
+          </div>
+
+          <div class="field">
+          
+            <div class="control">
+              <label class="label">Patient</label>
+              <input id="patienView" class="input patients" list="patientList" name="browser">
+             
+            </div>
+
+            <div class="control">
+              <label class="label">Service</label>
+
+              <input id="serviceView" class="input services"  name="browser">
+              
+            </div>
+
+          </div>
+
+          <div class="is-mobil level-right is-narrow">
+            <a id="closeView" class="button is-info m-1">Close</a>
+            
+          </div>
+
+        </div>
+      </div>
+        </div>
+
+            <!--Edit Modal-->
+        
+        <div id="editModal" class="modal card">
+        <div class="modal-content">
+        <span class="closeEdit">&times;</span>
+        
+        <div class=" column level p-3 mr-6">
+
+          <h1 class="is-size-1">Appointment Edition</h1>
+
+          <div class="field level level-left">
+           
+            <div class="control">
+              <label class="label">Start Time</label>
+              <input class="input" id="startEdit" type="time" id="appt" name="appt"
+                  min="09:00" max="18:00" required>
+               </input>
+            </div>
+
+            <div class="control mr-3">
+              <label class="label">End Time</label>
+              <input class="input" id="endEdit" type="time" id="appt" name="appt"
+                 min="09:00" max="18:00" required>
+               </input>
+            </div>
+
+          </div>
+
+          <div class="field">
+          
+            <div class="control">
+              <label class="label">Patient</label>
+              <input id="patientEdit" class="input patients" list="patientList" name="browser">
+              <datalist id="patientList">
+                
+              </datalist>
+            </div>
+
+            <div class="control">
+              <label class="label">Service</label>
+
+              <input id="serviceEdit" class="input services" list="serviceList" name="browser">
+              <datalist id="serviceList">
+                
+              </datalist>
+            </div>
+
+          </div>
+
+          <div class="is-mobil level-right is-narrow">
+            <a id="cancelEdit" class="button is-info m-1">Cancel</a>
+            <a id="saveEdit" class="button is-info m-1">Save</a>
+          </div>
+
+        </div>
+      </div>
+        </div>
+         
         
         <!--Delete Modal-->
         <div id="delete-prompt" class="modal card">
