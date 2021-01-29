@@ -2,15 +2,14 @@ const services = require("./services");
 module.exports = function(sequelize,DataTypes){
 
     var Treatments = sequelize.define("Treatments",{
-/*         treatment_id: {
-            type:DataTypes.INTEGER,
-            allowNull: false,
-            autoIncrement: true,
-            primaryKey: true,
+        treatment_id: {
+            primary_key: true,
+            type:DataTypes.UUID,
+          
             onDelete: 'cascade',
             onUpdate: 'cascade',
 
-        } */
+        }
         
     });
 

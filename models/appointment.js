@@ -23,10 +23,10 @@ module.exports = function(sequelize,DataTypes){
     Appointment.associate = function(models) {
     
         Appointment.belongsTo(models.Patient, {
-          foreignKey: 'patient_id', as : 'Patient' 
+          foreignKey: 'id', as : 'Patient' 
         });
          Appointment.hasOne(models.Treatments,{
-        foreignKey:"treatment_id", as:"Treatments"
+        foreignKey:"id", as:"Treatments"
          });
        
 

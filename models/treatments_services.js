@@ -11,8 +11,8 @@ module.exports = function(sequelize,DataTypes){
       service_cost:{
       type:DataTypes.INTEGER
     },
-    /*,
-    service_id:{
+  
+/*     service_id:{
             
       type:DataTypes.INTEGER,
       primaryKey: false,
@@ -31,7 +31,7 @@ module.exports = function(sequelize,DataTypes){
         key: 'treatment_id'
       }
       },
-*/
+ */
     
     });
 
