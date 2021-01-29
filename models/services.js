@@ -1,7 +1,7 @@
 module.exports = function(sequelize,DataTypes){
 
     var Services = sequelize.define("Services",{
-/* 
+        /* 
         service_id: {
             type:DataTypes.INTEGER,
             allowNull: false,
@@ -24,21 +24,19 @@ module.exports = function(sequelize,DataTypes){
         },
     });
 
-    Services.associate = function(models) {
-    
-        Services.belongsToMany(models.Treatments, {
-           
-                foreignKey: "service_id",
-               through: "Treatments_Services"
-                
-              }
-               
+ 
+       /* Services.associate = function(models) {
 
-            
-        );
+            Services.hasOne(models.Appointments, {
+              foreignKey: 'id', as : 'Appointment' 
+            });
+            Services.belongsTo(models.Patient, {
+              foreignKey: 'id',  as : 'Patient' 
+            });
+        };
+*/
 
-
-        }
+        
             return Services;
 
 

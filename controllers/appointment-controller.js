@@ -14,50 +14,44 @@ module.exports = function(app){
  
          today = yyyy + '-' + mm + '-' + dd;
  
-         console.log(today);
+         console.log("Fecha-------" + today + "HORA ----"+req.body.start);
  
          //////////////////////////////
 
         db.Appointment.create({
              date_start:req.body.start,
              date_end:req.body.end,
-             date_day:today
+             patient_id:req.body.patient,
+             service_id:req.body.service
+             //date_day:today
 
         }).then((response)=>{
 
                 res.send(response);
         });
-              
+        
     });
     
     app.get("/appointments",(req,res)=>{
 
         //////////////
-
-        var today = new Date();
+         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
         var yyyy = today.getFullYear();
 
         today = yyyy + '-' + mm + '-' + dd;
 
-        console.log(today);
-
         //////////////////////////////
 
-        db.Appointment.findAll({
+        db.Appointment.findAll({}).then((response)=>{
 
-            where:{
-                date_day:{ like: today }
-            }
-
-        }).then((response)=>{
-
-            let Appointments = response.map((obj)=>{
-                let app = obj.dataValues;
+                let Appointments = response.map((obj)=>{
+                    let app = obj.dataValues;
                 return app
-            });
+                });
 
+            //console.log("Testing " + response);
             res.render("appointments",{Appointments})
 
         });

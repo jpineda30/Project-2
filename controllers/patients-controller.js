@@ -44,6 +44,28 @@ module.exports = function(app){
         
     });
 
+    app.get("/patientsGet",(req,res)=>{
+
+        // res.render("patients","")
+         
+         db.Patient.findAll({
+             //where:{sex:true},
+             attributes:["id","first_name","last_name"]
+ 
+         }).then((patients)=>{
+               
+                 
+                 let Patients = patients.map((obj)=>{
+                     let patient = obj.dataValues;
+                     return patient
+                 });
+ 
+                
+                 res.send(Patients);
+         });
+         
+     });
+
     app.get("/viewPatient/:id",(req,res)=>{
 
        let id = req.params.id;

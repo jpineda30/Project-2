@@ -92,7 +92,7 @@ $(function(){
             service:service
         };
 
-        console.log(obj);
+        
         if(!beginningTime.isBefore(endTime))
         {
             alert("The end date must be greater that the beginning time");

@@ -36,6 +36,26 @@ module.exports = function(app){
     
     });
 
+    app.get("/servicesGet",(req,res) => {
+
+        console.log("estamos aqui");
+        db.Services.findAll({
+    
+    
+        }).then((services)=>{
+              
+                
+                let Services = services.map((obj)=>{
+                    let service = obj.dataValues;
+                    return service
+                });
+    
+               
+                res.send(Services);
+        });
+        
+        });
+
 
 
     app.get("/viewService/:id",(req,res)=>{
