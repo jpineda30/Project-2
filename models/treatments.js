@@ -1,4 +1,3 @@
-const services = require("./services");
 module.exports = function(sequelize,DataTypes){
 
     var Treatments = sequelize.define("Treatments",{
