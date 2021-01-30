@@ -14,6 +14,9 @@ module.exports = function(sequelize,DataTypes){
         date_end:{
             type:DataTypes.DATE(6)
         },
+        date_day:{
+            type:DataTypes.DATEONLY
+        },
         patient_id:{
             type:DataTypes.INTEGER
         },
