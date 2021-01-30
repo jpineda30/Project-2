@@ -2,7 +2,7 @@ module.exports = function(sequelize,DataTypes){
 
     var Services = sequelize.define("Services",{
         /* 
-        service_id: {
+        id: {
             type:DataTypes.INTEGER,
             allowNull: false,
             autoIncrement: true,
@@ -13,15 +13,15 @@ module.exports = function(sequelize,DataTypes){
         service_name:{
             type:DataTypes.STRING,
             allowNull: false,
-            /* defaultValue: false,  */
-           
         },
         service_cost:{
             type:DataTypes.INTEGER,
-            /* defaultValue: false,  */
-            allowNull: false,
-            
+            allowNull: false,   
         },
+        service_observations:{
+            type:DataTypes.TEXT,
+            allowNull: false, 
+        }
     });
 
  
@@ -36,8 +36,6 @@ module.exports = function(sequelize,DataTypes){
         };
 */
 
-        
             return Services;
-
 
 };

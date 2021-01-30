@@ -25,18 +25,18 @@ $("#create-btn").on("click",function(){
 
       $("#view_patient_name").text(response.first_name + " " + response.last_name);
 
-      if(response.sex)
+/*       if(response.sex)
          {$("#view_patient_sex").text("Male");}
       else
-         {$("#view_patient_sex").text("Female");}
-      
+         {$("#view_patient_sex").text("Female");} */
+      $("#view_patient_email").text(response.email);
+      $("#view_patient_phone").text(response.phone_number);
+      $("#view_patient_sex").text(response.sex);
       $("#view_patient_age").text(response.age);
       $("#view_patient_allergies").text(response.allergies);
       $("#view_patient_diseases").text(response.previous_diseases);
       $("#view_patient_medication").text(response.current_medication);
       $("#view_patient_observations").text(response.patient_observations);
-      $("#view_patient_email").text(response.email);
-      $("#view_patient_phone").text(response.phone);
 
       $("#viewModal").css("display","block");
    });
@@ -61,19 +61,18 @@ $("#edit-icon").on("click",function(){
 
       $("#edit_patient_name").val(response.first_name);
       $("#edit_patient_last_name").val(response.last_name);
-
-      if(response.sex)
+      $("#edit_patient_email").val(response.email);
+      $("#edit_patient_phone").val(response.phone_number);
+/*       if(response.sex)
          {$("#edit_patient_sex").val("Male");}
       else
-         {$("#edit_patient_sex").val("Female");};
-      
+         {$("#edit_patient_sex").val("Female");}; */
+      $("#view_patient_sex").text(response.sex);
       $("#edit_patient_age").val(response.age);
-      $("#edit_patient_allergies").val(response.allergies);
       $("#edit_patient_diseases").val(response.previous_diseases);
       $("#edit_patient_medication").val(response.current_medication);
+      $("#edit_patient_allergies").val(response.allergies);
       $("#edit_patient_observations").val(response.patient_observations);
-      $("#edit_patient_email").val(response.email);
-      $("#edit_patient_phone").val(response.phone);
 
       $("#editModal").css("display","block");
    });
@@ -93,6 +92,7 @@ $("#edit-icon").on("click",function(){
       first_name: $("#patient_name").val(),
       last_name: $("#patient_last_name").val(),
       email:$("#patient_email").val(),
+      phone_number:$("patient_phone").val(),
       sex:$("#patient_sex").val(),
       age:$("#patient_age").val(),
       previous_diseases:$("#patient_diseases").val(),
@@ -119,10 +119,11 @@ $("#saveEdit").on("click",function(){
    let patient = {
 
 
-      first_name: $("#edit_patient_name").val(),
-      last_name: $("#edit_patient_last_name").val(),
+      first_name:$("#edit_patient_name").val(),
+      last_name:$("#edit_patient_last_name").val(),
       email:$("#edit_patient_email").val(),
-      sex: true,
+      phone_number: parseInt($("#edit_patient_phone").val()),
+      sex:$("#edit_patient_sex").val(),
       age:$("#edit_patient_age").val(),
       previous_diseases:$("#edit_patient_diseases").val(),
       current_medication:$("#edit_patient_medication").val(),
