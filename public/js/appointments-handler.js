@@ -543,6 +543,7 @@ $(function(){
                             else
                             {
                                 $("#errorMsgEdit").text("You already have an appointment in that time");
+                                $("#errorMsg").text("You already have an appointment in that time");
                                  errors = true;
                                  return errors;
                             }
