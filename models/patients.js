@@ -1,7 +1,7 @@
 module.exports = function(sequelize,DataTypes){
 
     var Patient = sequelize.define("Patient",{
-/*         patient_id: {
+/*      id: {
             type:DataTypes.INTEGER,
             allowNull: false,
             autoIncrement: true,
@@ -21,33 +21,29 @@ module.exports = function(sequelize,DataTypes){
             type: DataTypes.STRING,
             validate:{
                 isEmail: true,
-            }
+            },
         },
         phone_number:{
-            type: DataTypes.INTEGER,
-/*             allowNull: false,
-            validate: {
-                len: [10, 18]
-              } */
+            type: DataTypes.STRING,
+           /*  allowNull: false, */
         },
         sex:{
-            type: DataTypes.BOOLEAN,
-            /* defaultValue: false, */
+            type: DataTypes.STRING,
         },
         age:{
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
         },
         previous_diseases:{
-            type: DataTypes.TEXT
+            type: DataTypes.TEXT,
         }, 
         current_medication:{
-            type: DataTypes.TEXT
+            type: DataTypes.TEXT,
         },
         allergies:{
-            type: DataTypes.TEXT
+            type: DataTypes.TEXT,
         },  
         patient_observations:{
-            type: DataTypes.TEXT
+            type: DataTypes.TEXT,
         }  
     });
 
@@ -59,8 +55,6 @@ module.exports = function(sequelize,DataTypes){
               
         });
       };*/
-
-      
 
     return Patient;
 

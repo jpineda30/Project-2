@@ -9,15 +9,18 @@ module.exports = function(app){
             first_name:req.body.first_name,
             last_name:req.body.last_name,
             email:req.body.email,
-            sex: true,
+            phone_number:req.body.phone_number,
+            sex:req.body.sex,
             age:req.body.age,
             previous_diseases:req.body.previous_diseases,
             current_medication:req.body.current_medication,
-            patient_observations:req.body.patient_observations,
-            allergies:req.body.allergies
+            allergies:req.body.allergies,
+            patient_observations:req.body.patient_observations
+            
 
 
         }).then((response)=>{
+                console.log(response)
                 res.send(response);
         });
     });
@@ -27,7 +30,7 @@ module.exports = function(app){
        // res.render("patients","")
         
         db.Patient.findAll({
-            //where:{sex:true},
+           
             attributes:["id","first_name","last_name","email"]
 
         }).then((patients)=>{
@@ -49,7 +52,6 @@ module.exports = function(app){
         // res.render("patients","")
          
          db.Patient.findAll({
-             //where:{sex:true},
              attributes:["id","first_name","last_name"]
  
          }).then((patients)=>{
@@ -92,12 +94,14 @@ module.exports = function(app){
             first_name:req.body.first_name,
             last_name:req.body.last_name,
             email:req.body.email,
-            sex: true,
+            phone_number:req.body.phone_number,
+            sex: req.body.sex,
             age:req.body.age,
             previous_diseases:req.body.previous_diseases,
             current_medication:req.body.current_medication,
-            patient_observations:req.body.patient_observations,
-            allergies:req.body.allergies
+            allergies:req.body.allergies,
+            patient_observations:req.body.patient_observations
+            
             
 
         },{where:{id:req.params.id}}).then((response)=>{

@@ -2,6 +2,10 @@
 
 html,
 body {
+  background-image: url("https://image.freepik.com/vector-gratis/diseno-fondo-cuidado-dental_1232-3270.jpg");
+ background-position:100% 100%; /*extremo inferior izquierdo*/ 
+ /* background-size: cover; */
+  background-repeat:no-repeat;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -10,6 +14,7 @@ body {
   flex-direction: column;
   flex-wrap: wrap;
   font-family: 'Open Sans Condensed', sans-serif;
+  background-color: lavender;
 }
 
 div[class*=box] {
@@ -108,11 +113,11 @@ div[class*=box] {
 }
 
 .bdelete{
-  color: #3C3C3C;
+  color: #68638a;
 }
 
 .bedit{
-  color: orange ;
+  color: rgb(59, 131, 247) ;
 }
 
 .iconsBar{
@@ -121,4 +126,31 @@ div[class*=box] {
 
 i{
   height: 17px;
+}
+
+
+
+.myButton {
+	box-shadow:inset 4px -5px 0px 0px #b38dcc;
+	background:linear-gradient(to bottom, #916fad 5%, #d5bfe6 100%);
+	background-color:#916fad;
+	border-radius:6px;
+	border:1px solid #a548e8;
+	display:inline-block;
+	cursor:pointer;
+	color:#f0e7f0;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:bold;
+	padding:4px 15px;
+	text-decoration:none;
+	text-shadow:0px 0px 0px #7537a8;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #d5bfe6 5%, #916fad 100%);
+	background-color:#d5bfe6;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
 }

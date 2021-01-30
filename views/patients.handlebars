@@ -2,9 +2,9 @@
         <script src="js/patientHandler.js"></script>
         <div class=" column level p-3 mr-6 easein">
 
-          <h1 class="is-size-1">Patients</h1>
+          <h1 class="title is-1">Patients</h1>
           <div id="creator" class="card card-header is-fullwidth">
-            <a id="create-btn" class="button is-info m-1">Create</a>
+            <a href="#" id="create-btn" class="button is-info m-1 myButton">Create</a>
             <div class="create-form">
 
             </div>
@@ -75,51 +75,80 @@
               </div>
 
               <div class="field">
-                <label class="label">Sex</label>
+                <label class="label">Phone Number</label>
                 <div class="control">
-                  <input id="patient_sex" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                  <input id="patient_phone" class="input" type="text" placeholder="5555555555">
                 </div>
               </div>
 
               <div class="field">
+                <label class="label">Sex</label>
+                <div class="control">
+                  <input id="patient_sex" class="input" type="text" placeholder="">
+                </div>
+              </div>
+
+{{!-- <div class="dropdown is-active">
+    <div class="dropdown-trigger">
+      <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+        <span>Sex</span>
+        <span class="icon is-small">
+          <i class="fas fa-angle-down" aria-hidden="true"></i>
+        </span>
+      </button>
+    </div>
+    <div class="dropdown-menu" id="dropdown-menu" role="menu">
+      <div class="dropdown-content">
+        <a href="#" class="dropdown-item">
+          Dropdown item
+        </a>
+        <a class="dropdown-item">
+          Other dropdown item
+        </a>
+      </div>
+    </div>
+  </div> --}}
+
+
+              <div class="field">
                 <label class="label">Age</label>
                 <div class="control">
-                  <input id="patient_age" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                  <input id="patient_age" class="input" type="number" placeholder="">
                 </div>
               </div>
 
               <div class="field">
                 <label class="label">Previous diseases</label>
                 <div class="control">
-                  <input id="patient_diseases" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                  <input id="patient_diseases" class="input" type="text" placeholder="">
                 </div>
               </div>
 
               <div class="field">
                 <label class="label">Current medication</label>
                 <div class="control">
-                  <input id="patient_medication" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                  <input id="patient_medication" class="input" type="text" placeholder="">
                 </div>
               </div>
 
               <div class="field">
                 <label class="label">Allergies</label>
                 <div class="control">
-                  <input id="patient_allergies" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                  <input id="patient_allergies" class="input" type="text" placeholder="">
                 </div>
               </div>
 
               <div class="field">
                 <label class="label">Observations</label>
                 <div class="control">
-                  <input id="patient_observations" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                  <input id="patient_observations" class="input" type="text" placeholder="">
                 </div>
               </div>
     
                  
               <div class="is-mobil level-right is-narrow">
-                <a id="cancelCreate" class="button is-info m-1">Cancel</a>
-                <a id="savePatient" class="button is-info m-1">Save</a>
+                <a href="#" id="cancelCreate" class="button is-info m-1 myButton">Cancel</a>
+                <a href="#" id="savePatient" class="button is-info m-1 myButton">Save</a>
               </div>
     
             </div>
@@ -161,51 +190,58 @@
               </div>
 
               <div class="field">
+                <label class="label">Phone Number</label>
+                <div class="control">
+                  <input id="edit_patient_phone" class="input" type="text" placeholder="5555555555">
+                </div>
+              </div>
+
+              <div class="field">
                 <label class="label">Sex</label>
                 <div class="control">
-                  <input id="edit_patient_sex" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                  <input id="edit_patient_sex" class="input" type="text" placeholder="">
                 </div>
               </div>
 
               <div class="field">
                 <label class="label">Age</label>
                 <div class="control">
-                  <input id="edit_patient_age" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                  <input id="edit_patient_age" class="input" type="text" placeholder="">
                 </div>
               </div>
 
               <div class="field">
                 <label class="label">Previous diseases</label>
                 <div class="control">
-                  <input id="edit_patient_diseases" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                  <input id="edit_patient_diseases" class="input" type="text" placeholder="">
                 </div>
               </div>
 
               <div class="field">
                 <label class="label">Current medication</label>
                 <div class="control">
-                  <input id="edit_patient_medication" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                  <input id="edit_patient_medication" class="input" type="text" placeholder="">
                 </div>
               </div>
 
               <div class="field">
                 <label class="label">Allergies</label>
                 <div class="control">
-                  <input id="edit_patient_allergies" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                  <input id="edit_patient_allergies" class="input" type="text" placeholder="">
                 </div>
               </div>
 
               <div class="field">
                 <label class="label">Observations</label>
                 <div class="control">
-                  <input id="edit_patient_observations" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                  <input id="edit_patient_observations" class="input" type="text" placeholder="">
                 </div>
               </div>
     
                  
               <div class="is-mobil level-right is-narrow">
-                <a id="cancelEdit" class="button is-info m-1">Cancel</a>
-                <a id="saveEdit" class="button is-info m-1">Save</a>
+                <a href="#" id="cancelEdit" class="button is-info m-1 myButton">Cancel</a>
+                <a href="#" id="saveEdit" class="button is-info m-1 myButton">Save</a>
               </div>
     
             </div>
@@ -269,6 +305,7 @@
                <div class="field">
                 <label class="label">Email: <p class="card p-1" id="view_patient_email"></p></label>
                 </div>
+
                 <div class="field">
                 <label class="label">Phone: <p class="card p-1" id="view_patient_phone"></p></label>
               </div>
@@ -290,8 +327,8 @@
             <div class="">
               <h1>Are you sure you want to delete</h1>
               <div class="level">
-                <a id="cancelDel" class="button is-info m-1">Cancel</a>
-                <a id="deleteBtn" class="button is-info m-1">Delete</a>
+                <a href="#" id="cancelDel" class="button is-info m-1 myButton">Cancel</a>
+                <a href="#" id="deleteBtn" class="button is-info m-1 myButton">Delete</a>
 
               </div>
             </div>

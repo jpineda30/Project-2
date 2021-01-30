@@ -25,11 +25,11 @@ $(function(){
    
    });
    
-   $("#menu-treatments").on("click", ()=>{
+/*    $("#menu-treatments").on("click", ()=>{
    
       window.location.replace("/treatments");
    
-   });
+   }); */
 
    $("#menu-services").on("click", ()=>{
    

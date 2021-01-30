@@ -21,7 +21,6 @@ app.set("view engine", "handlebars");
 require("./routes/html-routes.js")(app);
 require("./controllers/user-controller.js")(app);
 require("./controllers/patients-controller.js")(app);
-require("./controllers/treatments_services-controller")(app);
 require("./controllers/services-controller.js")(app);
 require("./controllers/appointment-controller.js")(app);
 
