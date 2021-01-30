@@ -1,4 +1,6 @@
 var express = require("express");
+var session = require("express-session");
+var passport = require("./config/passport");
 var app = express();
 var PORT = process.env.PORT || 8080;
 var db = require("./models");
@@ -6,6 +8,9 @@ var db = require("./models");
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(session({ secret: "keyboard cat", resave: true, savedUnitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Static directory
 app.use(express.static("public"));
@@ -18,6 +23,7 @@ app.set("view engine", "handlebars");
 
 // Routes
 // =============================================================
+require("./controllers/user-controller.js")(app);
 require("./routes/html-routes.js")(app);
 require("./controllers/user-controller.js")(app);
 require("./controllers/patients-controller.js")(app);
