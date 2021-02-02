@@ -126,29 +126,49 @@ $("#saveEdit").on("click",function(event){
  $(".delete-icon").on("click",function(){
     
       target = $(this).attr("data-id"); 
+      $("#deletePromt").text("");
 
     $("#delete-prompt").css("display","block");
 
 });
 
-$("#cancelDel, .closeDeletion, #deleteBtn").on("click",function(){
+$("#cancelDel, .closeDeletion").on("click",function(){
     $("#delete-prompt").css("display","none");
-});
+    
+    });
+    
+    
+
 
 // #deleteBtn
 $("#deleteBtn").on("click",function(){
-    
-   $.ajax("/deleteService/" + target,{
+   $.ajax("/validateService/"+target,{
+      type: "GET"
+   }).then((resp)=>{
 
-      type:"DELETE"
+      if(resp.length>0)
+      { 
+         
+         $("#deletePromt").text("You have appointments with this service! change the appointments first");
+      }
+      else
+      {
+         $.ajax("/deleteService/" + target,{
 
-   }).then((response)=>{
-      console.log("siii" + response)
-    console.log("service deleted");
-    window.location.replace("/services");
+            type:"DELETE"
+      
+         }).then((response)=>{
+           
+         $("#delete-prompt").css("display","none");
+          window.location.replace("/services");
+         });
+      }
+
    });
 
+ 
+
 });
 
-
 });
+

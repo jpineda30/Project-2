@@ -163,7 +163,37 @@ module.exports = function(app){
         
     });
 
-   
+   //validators
+
+   app.get("/validateService/:id",(req,res)=>{
+        let id = req.params.id;
+    
+
+        db.Appointment.findAll({
+            where:{service_id:id}
+        }).then((response)=>{
+
+        
+        
+            res.json(response);
+
+    });
+   });
+
+   app.get("/validatePatient/:id",(req,res)=>{
+    let id = req.params.id;
+
+
+    db.Appointment.findAll({
+        where:{patient_id:id}
+    }).then((response)=>{
+
+    
+    
+        res.json(response);
+
+});
+});
     
 
     
