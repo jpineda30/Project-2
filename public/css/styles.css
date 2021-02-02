@@ -150,3 +150,17 @@ i{
 	position:relative;
 	top:1px;
 }
+
+@media only screen and (max-width: 420px){
+  #menu{
+    height: 20vh;
+  }
+  #mainlogo{
+
+    display: none;
+
+  }
+  .modal{
+    width: 100vw;
+  }
+}
