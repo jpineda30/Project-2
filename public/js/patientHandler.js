@@ -47,7 +47,7 @@ $("#create-btn").on("click",function(){
 
 });
 
-$("#edit-icon").on("click",function(){
+$(".edit-icon").on("click",function(){
 
    let id = $(this).attr("data-id"); 
    target = id;
