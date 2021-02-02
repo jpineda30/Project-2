@@ -1,7 +1,7 @@
 # <img src="./public/design/pngwing.com.png" width="50"/> DentApp - Appointment Managing System 
 ​
 ---
-<p>&nbsp;</p>
+
 ​
 1. [Description and User's Story](#description-and-user's-story)
 2. [Functionalities](#functionalities)
@@ -14,13 +14,13 @@
 9. [Future Development](#future-development)
 10. [Credits and Acknowledgements](#credits-and-acknowledgements) 
 ​
-<p>&nbsp;</p>
+
 ​
 ---
 ​
 ## Description and User's Story 
 ​
-<p>&nbsp;</p>
+
 ​
 ​
 ``
@@ -31,11 +31,11 @@ CREATE and EDIT new patient records and,
 SET appointments for different services in a calendar.  
 ``
 ​
-<p>&nbsp;</p>
+
 ​
 **DentApp** is a web application that can help dentists and other medical specialists install a simple server-based appointment system for their clinics or private offices. The system allows for simple management of their patients' appointments and to track medical services and treatments through verified users. 
 ​
-<p>&nbsp;</p>
+
 ​
 ---
 ​
@@ -50,7 +50,7 @@ Currently, the system offers the following *features*:
 * Users can also add service treatments in a separate section. They can add a new service by adding the information and costs of said service. 
 * The system currently allows editing information of patients, services, and appointments. 
 ​
-<p>&nbsp;</p>
+
 ​
 ---
 ​
@@ -80,7 +80,7 @@ The Full-Stack breakdown of the application is as follows:
 ​
 * [Moment.js](https://www.npmjs.com/package/bcrypt) is a basic date-time library tool that parses and generates time data into JavaScript. Moment.js was used in this application to generate the basic Calendar tool in the Appointments section.
 ​
-<p>&nbsp;</p>
+
 ​
 ---
 ​
@@ -98,7 +98,7 @@ If you are interested in running **DentApp** locally, you can follow these steps
 ​
 Or, alternatively, you can use the demo page we deployed on a [Heroku](https://www.heroku.com/platform) external server. You can access the functional app [here](https://protected-sands-23388.herokuapp.com/). 
 ​
-<p>&nbsp;</p>
+
 ​
 ---
 ​
@@ -107,46 +107,46 @@ Or, alternatively, you can use the demo page we deployed on a [Heroku](https://w
 1. Navigate to main page `localhost:[yourlocalhost]/` and click **Profile** on the left navigation bar.
 ​
 2. The site will send you to the User creation page. Type your info and click the **Sign Up** button.
-<p>&nbsp;</p> 
+
 <img src="./views/images/user-creation.png" width="300"/>
-<p>&nbsp;</p>
+
 ​
 3. If the user was created successfully, the page will then send you to the **Login** page. Input your credentials and click the **Login** button.
 ​
-<p>&nbsp;</p> 
+ 
 <img src="./views/images/login-info.png" width="250"/>
-<p>&nbsp;</p>
+
 ​
 4. After logging in, you can create a patient by clicking **Patients** on the navigation bar. 
 ​
 5. In the **Patients** page, you can add a new patient by clicking the **Create** button.
 ​
 6. Fill in the form all the patient's information and clinical history. Then, click the **Save** button. 
-<p>&nbsp;</p> 
+ 
 <img src="./views/images/create-patient.png" width="300"/>
-<p>&nbsp;</p> 
+ 
 ​
 7. You can always view, edit, or delete a patient using the buttons on the right side.
-<p>&nbsp;</p> 
+ 
 <img src="./views/images/edit-buttons.png" width="350"/>
-<p>&nbsp;</p> 
+ 
 ​
 8. You can set an appointment in the **Appointments** section. There, select a date using the dropdown calendar tool, then click the **Create** button to set an appointment for that date.
-<p>&nbsp;</p> 
+
 <img src="./views/images/appointment.png" width="350"/>
-<p>&nbsp;</p> 
+
 ​
 9. In the form, select start and end times for the appointment, and type the name of the patient and the service provided. Don't forget to click **Save** after you're done.
-<p>&nbsp;</p> 
+
 <img src="./views/images/appointment-set.png" width="350"/>
-<p>&nbsp;</p> 
+
 ​
 10. By selecting different dates on the calendar, you can filter the appointments for each date. Remember that you can also edit an appointment's information (time, service and/or name of the patient).
 ​
 11. The **Services** page has the same functionalities as the **Patients**/**Appointments** section. The main difference is that you can add a price for the service provided. 
-<p>&nbsp;</p> 
+
 <img src="./views/images/services.png" width="400"/>
-<p>&nbsp;</p> 
+
 ​
 ---
 ​
@@ -156,13 +156,13 @@ The following Gif provides a demonstration of **DentApp's** functionalities:
 ​
 ![App Demo](./views/images/deantAPPointment_2.gif)
 ​
-<p>&nbsp;</p> 
+
 ​
 ---
 ​
 ## Licenses
 ​
-<p>&nbsp;</p>
+
 ​
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 ​
@@ -170,7 +170,7 @@ The following Gif provides a demonstration of **DentApp's** functionalities:
 ​
 [![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)
 ​
-<p>&nbsp;</p>
+
 ​
 ---
 ​
@@ -179,7 +179,7 @@ The following Gif provides a demonstration of **DentApp's** functionalities:
 This project is not currently looking for contributors.
 If you're experiencing any issues with the code, feel free to contact us through GitHub or raise an [issue](https://github.com/jpineda30/Project-2/issues) in the original repository. 
 ​
-<p>&nbsp;</p>
+
 ​
 ---
 ​
@@ -203,7 +203,7 @@ These are some improved functionalities we want to add to the project in the nea
 ​
 * Create a separate User system for clients, so they can also access their information, balance account, and appointments online. 
 ​
-<p>&nbsp;</p>
+
 ​
 ---
 ​
