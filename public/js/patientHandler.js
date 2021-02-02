@@ -158,28 +158,44 @@ $("#saveEdit").on("click",function(){
  $(".delete-icon").on("click",function(){
     
       target = $(this).attr("data-id"); 
+      $("#validation").text("");
 
     $("#delete-prompt").css("display","block");
 
 });
 
-$("#cancelDel, .closeDeletion, #deleteBtn").on("click",function(){
+$("#cancelDel, .closeDeletion").on("click",function(){
     $("#delete-prompt").css("display","none");
 });
 
 // #deleteBtn
 $("#deleteBtn").on("click",function(){
-   
-   $.ajax("/deletePatient/" + target,{
+   $.ajax("/validatePatient/"+target,{
+      type: "GET"
+   }).then((resp)=>{
 
-      type:"DELETE"
+      if(resp.length>0)
+      { 
+         
+         $("#validation").text("You have appointments with this patient! change the appointments first");
+      }
+      else
+      {
+         $.ajax("/deletePatient/" + target,{
 
-   }).then((response)=>{
-
-      console.log("deleted");
-      window.location.replace("/patients");
+            type:"DELETE"
+      
+         }).then((response)=>{
+      
+            $("#delete-prompt").css("display","none");
+            window.location.replace("/patients");
+      
+         });
+      }
 
    });
+   //////////////////
+   
 
 });
 
