@@ -34,3 +34,19 @@
     text-decoration: none;
     cursor: pointer;
   }
+
+  @media only screen and (max-width: 420px){
+  
+    .modal{
+      width: 450px;
+      height: 100vh;
+    }
+
+
+    .modal-content{
+      padding: 3px;
+      margin: 2px;
+      width: 100%;
+      height: 100%;
+    }
+  }
